@@ -1,0 +1,19 @@
+{
+  "linux": {
+    "x64": null,
+    "aarch64": null
+  },
+  "darwin": {
+    "x64": null,
+    "aarch64": null
+  },
+  "win32": {
+    "x64": null,
+    "aarch64": null
+  },
+  "android": {
+    "aarch64": null,
+    "x64": null
+  },
+  "other": []
+}

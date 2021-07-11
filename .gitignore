@@ -1,0 +1,8 @@
+# Node
+node_modules/
+
+# PHP Bins
+php_build
+
+# Zip Files
+*.zp

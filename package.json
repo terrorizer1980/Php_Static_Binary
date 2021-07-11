@@ -1,0 +1,23 @@
+{
+  "name": "php_static_binary",
+  "version": "1.0.0",
+  "description": "PHP Static Files",
+  "main": "Build.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node Build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/The-Bds-Maneger/Php_Static_Binary.git"
+  },
+  "author": "The Bds Maneger Project",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/The-Bds-Maneger/Php_Static_Binary/issues"
+  },
+  "homepage": "https://github.com/The-Bds-Maneger/Php_Static_Binary#readme",
+  "dependencies": {
+    "adm-zip": "^0.5.5"
+  }
+}
