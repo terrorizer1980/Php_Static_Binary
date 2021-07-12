@@ -21,10 +21,10 @@ if (process.platform === "linux"){
         if (code === 0) {
             // Create Zip
             const linux_zip = new adm_zip();
-            linux_zip.addLocalFolder(path.resolve(__dirname, "./php_build/bin", "/bin"));
+            linux_zip.addLocalFolder(path.resolve(__dirname, "./php_build/bin"), "/bin");
             linux_zip.writeZip(path.resolve(__dirname, "Linux_x64_php.zip"));
             // Remove Bin
-            fs.rmdirSync(path.resolve(__dirname, "./php_build/bin"))
+            fs.rmSync(path.resolve(__dirname, "./php_build/bin"), {force: true, recursive: true})
             const musl_install = child_process.execFile("sudo", ["bash", path.resolve(__dirname, "./PreInstall/musl-cross.sh")]);
             musl_install.stdout.on("data", log);
             musl_install.stderr.on("data", log);
@@ -45,7 +45,7 @@ if (process.platform === "linux"){
                     android_build.on("exit", code => {
                         if (code === 0) {
                             const android_zip = new adm_zip();
-                            android_zip.addLocalFolder(path.resolve(__dirname, "./php_build/bin", "/bin"));
+                            android_zip.addLocalFolder(path.resolve(__dirname, "./php_build/bin"), "/bin");
                             android_zip.writeZip(path.resolve(__dirname, "Android_aarch64_php.zip"));
                             process.exit(0);
                         } else {
@@ -94,7 +94,7 @@ if (process.platform === "linux"){
     windows_build.on("exit", code => {
         if (code === 0) {
             const windows_zip = new adm_zip();
-            windows_zip.addLocalFolder(path.resolve(__dirname, "./php_build/bin/", "/bin"));
+            windows_zip.addLocalFolder(path.resolve(__dirname, "./php_build/bin/"), "/bin");
             windows_zip.writeZip(path.resolve(__dirname, `Windows_${process.arch}_php.zip`))
         } else {
             log("Could not compile php for Windows");
