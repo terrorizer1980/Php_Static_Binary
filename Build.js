@@ -7,10 +7,7 @@ const adm_zip = require("adm-zip")
 // Log
 function log(data = ""){
     data = data.split("\n").filter(a=>a)
-    // GCC
-    data = data.filter
-    // Log
-    data.forEach(a=>console.log(a))
+    for (let a of data)console.log(a)
 }
 
 // Linux and Android
