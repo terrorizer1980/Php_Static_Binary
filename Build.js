@@ -6,7 +6,11 @@ const adm_zip = require("adm-zip")
 
 // Log
 function log(data = ""){
-    return data = data.split("\n").filter(a=>a).forEach(a=>console.log(a))
+    data = data.split("\n").filter(a=>a)
+    // GCC
+    data = data.filter
+    // Log
+    data.forEach(a=>console.log(a))
 }
 
 // Linux and Android
@@ -25,7 +29,7 @@ if (process.platform === "linux"){
             linux_zip.writeZip(path.resolve(__dirname, "Linux_x64_php.zip"));
             // Remove Bin
             fs.rmSync(path.resolve(__dirname, "./php_build/bin"), {force: true, recursive: true})
-            const musl_install = child_process.execFile("sudo", ["bash", path.resolve(__dirname, "./PreInstall/musl-cross.sh")]);
+            const musl_install = child_process.execFile("sudo", ["bash", path.resolve(__dirname, "./PreInstall/musl-cross.sh")], {maxBuffer: Infinity});
             musl_install.stdout.on("data", log);
             musl_install.stderr.on("data", log);
             musl_install.on("exit", code => {
