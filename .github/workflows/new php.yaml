@@ -11,7 +11,7 @@ on:
 jobs:
   Build:
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         os:
           - ubuntu-latest
@@ -60,6 +60,7 @@ jobs:
       # Linux/MacOS Build
       - name: Linux/MacOS Build php
         if: matrix.os != 'windows-latest'
+        continue-on-error: true
         run: npm run build
 
       # Upload Artifacts
