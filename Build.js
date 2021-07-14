@@ -71,7 +71,7 @@ if (process.platform === "linux"){
     const macos_build = child_process.execFile(path.resolve(__dirname, "./php_build/compile.sh"), [
         "-t",
         "mac64",
-        "-f",
+        `-j${os.cpus().length}`,
         "-u",
         "-g",
         "-l"
