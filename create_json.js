@@ -26,7 +26,7 @@ var nwjson = {
 
 // Organizing the JSON
 for (let index of files){
-    const DownloadURL = `https://github.com/The-Bds-Maneger/Raw_files/releases/download/${process.env.tag_name}/${index}`;
+    const DownloadURL = `https://github.com/The-Bds-Maneger/Php_Static_Binary/releases/download/${process.env.tag_name}/${index}`;
     console.log(DownloadURL);
     // Windows
     if (/[Ww]indows/.test(index)){
