@@ -65,7 +65,8 @@ if (process.platform === "linux"){
     });
 } else if (process.platform === "darwin") {
     // MacOS Set Paths
-    process.env.PATH = process.env.PATH += ":/usr/local/opt/bison/bin"
+    process.env.PATH = "/usr/local/opt/bison/bin:" + process.env.PATH
+    process.env.LDFLAGS = "-L/usr/local/opt/bison/lib"
 
     // Build php
     const macos_build = child_process.execFile(path.resolve(__dirname, "./php_build/compile.sh"), [
