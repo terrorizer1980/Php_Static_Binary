@@ -11,10 +11,10 @@ exports.win32_x64 = async function win32_x64() {
             if (code === 0) {
                 // Create zip file
                 const windows_zip = new adm_zip();
-                windows_zip.addLocalFolder(path.resolve(__dirname, "./php_build/bin/"), "/bin");
+                windows_zip.addLocalFolder(path.resolve(__dirname, "../php_build/bin/"), "/bin");
 
                 // Write zip files
-                let outZip = path.resolve(__dirname, "Windows_x64_php.zip");
+                let outZip = path.resolve(__dirname, "../Windows_x64_php.zip");
                 windows_zip.writeZip(outZip);
                 resolve(outZip);
             } else {
