@@ -1,6 +1,7 @@
 const child_process = require("child_process");
 const path = require("path");
 const adm_zip = require("adm-zip");
+const os = require("os");
 
 //Set Build Function
 exports.Linux = async function Linux() {

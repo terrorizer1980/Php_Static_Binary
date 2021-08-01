@@ -1,6 +1,7 @@
 const child_process = require("child_process");
 const path = require("path");
 const adm_zip = require("adm-zip");
+const os = require("os");
 
 // Mac Intel
 exports.Mac_Intel = async function Mac_Intel() {

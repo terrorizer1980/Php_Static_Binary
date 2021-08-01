@@ -1,6 +1,7 @@
 const child_process = require("child_process");
 const path = require("path");
 const adm_zip = require("adm-zip");
+const os = require("os");
 
 exports.MuslBuildInstall = async function MuslBuildInstall(){
     return new Promise((resolve, reject) => {
