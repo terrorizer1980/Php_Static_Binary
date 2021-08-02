@@ -2,10 +2,13 @@ const child_process = require("child_process");
 const path = require("path");
 const adm_zip = require("adm-zip");
 const os = require("os");
+const fs = require("fs");
 
 // Mac Intel
 exports.Mac_Intel = async function Mac_Intel() {
     return new Promise((resolve, reject) => {
+        let BinPath = path.resolve(__dirname, "../php_build/bin");
+        if (fs.existsSync(BinPath)) fs.rmdirSync(BinPath);
         // MacOS Set Paths
         process.env.PATH = "/usr/local/opt/bison/bin:" + process.env.PATH
         process.env.LDFLAGS = "-L/usr/local/opt/bison/lib"
@@ -20,7 +23,7 @@ exports.Mac_Intel = async function Mac_Intel() {
             if (code === 0) {
                 // Create zip file
                 const macos_zip = new adm_zip();
-                macos_zip.addLocalFolder(path.resolve(__dirname, "../php_build/bin"), "/bin");
+                macos_zip.addLocalFolder(BinPath, "/bin");
 
                 // Write zip file
                 let OutZip = path.resolve(__dirname, "../MacOS_x64_php.zip");
@@ -36,6 +39,8 @@ exports.Mac_Intel = async function Mac_Intel() {
 // Mac ARMs
 exports.Mac_aarch64 = async function Mac_aarch64() {
     return new Promise((resolve, reject) => {
+        let BinPath = path.resolve(__dirname, "../php_build/bin");
+        if (fs.existsSync(BinPath)) fs.rmdirSync(BinPath);
         // MacOS Set Paths
         process.env.PATH = "/usr/local/opt/bison/bin:" + process.env.PATH
         process.env.LDFLAGS = "-L/usr/local/opt/bison/lib"
@@ -50,7 +55,7 @@ exports.Mac_aarch64 = async function Mac_aarch64() {
             if (code === 0) {
                 // Create zip file
                 const macos_zip = new adm_zip();
-                macos_zip.addLocalFolder(path.resolve(__dirname, "../php_build/bin"), "/bin");
+                macos_zip.addLocalFolder(BinPath, "/bin");
 
                 // Write zip file
                 let OutZip = path.resolve(__dirname, "../MacOS_x64_php.zip")

@@ -16,7 +16,7 @@ const Android = require("./targets/android_aarch64");
     } else if (process.platform === "darwin") {
         try {
             await MacOS.Mac_Intel();
-            await MacOS.Mac_aarch64();
+            // await MacOS.Mac_aarch64();
         } catch (e) {
             console.log(e);
             process.exit(1);
