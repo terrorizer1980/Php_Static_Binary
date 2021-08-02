@@ -5,7 +5,8 @@
   "main": "Build.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node Build.js"
+    "build": "node Build.js",
+    "musl": "node -p 'require(\"./targets/android_aarch64\").MuslBuildInstall()'"
   },
   "repository": {
     "type": "git",

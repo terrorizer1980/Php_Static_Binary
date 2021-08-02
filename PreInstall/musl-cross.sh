@@ -1,5 +1,5 @@
 #!/bin/bash
-set -ex
+set -x
 #
 git clone https://github.com/pmmp/musl-cross-make.git /tmp/musl-cross-make 
 cd /tmp/musl-cross-make

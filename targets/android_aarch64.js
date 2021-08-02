@@ -16,7 +16,9 @@ exports.MuslBuildInstall = async function MuslBuildInstall(){
 exports.android_aarch64 = async function android_aarch64() {
     return new Promise((resolve, reject) => {
         let BinPath = path.resolve(__dirname, "../php_build/bin");
-        if (fs.existsSync(BinPath)) fs.rmdirSync(BinPath);
+        let InstallData = path.resolve(__dirname, "..", "php_build/install_data");
+        if (fs.existsSync(BinPath)) fs.rmSync(BinPath, {recursive: true});
+        if (fs.existsSync(InstallData)) fs.rmSync(InstallData, {recursive: true});
         const android_build = child_process.execFile(path.resolve(__dirname, "../php_build/compile.sh"), ["-t", "android-aarch64", "-x", "-f", `-j${os.cpus().length}`], {
             cwd: path.resolve(__dirname, "../php_build")
         });

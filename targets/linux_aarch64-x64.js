@@ -8,7 +8,9 @@ const fs = require("fs");
 exports.Linux = async function Linux() {
     return new Promise((resolve, reject) => {
         let BinPath = path.resolve(__dirname, "../php_build/bin");
-        if (fs.existsSync(BinPath)) fs.rmdirSync(BinPath);
+        let InstallData = path.resolve(__dirname, "..", "php_build/install_data");
+        if (fs.existsSync(BinPath)) fs.rmSync(BinPath, {recursive: true});
+        if (fs.existsSync(InstallData)) fs.rmSync(InstallData, {recursive: true});
         // Setup PHP Build
         let BuildScript = path.resolve(__dirname, "../php_build/compile.sh");
         const linux_build = child_process.execFile(BuildScript, [`-j${os.cpus().length}`], {
@@ -23,7 +25,7 @@ exports.Linux = async function Linux() {
                 linux_zip.addLocalFolder(BinPath, "/bin");
 
                 // Create Zip file
-                let OutFile = path.resolve(__dirname, `Linux_${process.arch}_php.zip`);
+                let OutFile = path.resolve(__dirname, `../Linux_${process.arch}_php.zip`);
                 linux_zip.writeZip(OutFile);
                 resolve(OutFile);
             } else {

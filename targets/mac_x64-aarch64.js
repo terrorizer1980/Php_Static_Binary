@@ -8,7 +8,9 @@ const fs = require("fs");
 exports.Mac_Intel = async function Mac_Intel() {
     return new Promise((resolve, reject) => {
         let BinPath = path.resolve(__dirname, "../php_build/bin");
-        if (fs.existsSync(BinPath)) fs.rmdirSync(BinPath);
+        let InstallData = path.resolve(__dirname, "..", "php_build/install_data");
+        if (fs.existsSync(BinPath)) fs.rmSync(BinPath, {recursive: true});
+        if (fs.existsSync(InstallData)) fs.rmSync(InstallData, {recursive: true});
         // MacOS Set Paths
         process.env.PATH = "/usr/local/opt/bison/bin:" + process.env.PATH
         process.env.LDFLAGS = "-L/usr/local/opt/bison/lib"
@@ -40,7 +42,9 @@ exports.Mac_Intel = async function Mac_Intel() {
 exports.Mac_aarch64 = async function Mac_aarch64() {
     return new Promise((resolve, reject) => {
         let BinPath = path.resolve(__dirname, "../php_build/bin");
-        if (fs.existsSync(BinPath)) fs.rmdirSync(BinPath);
+        let InstallData = path.resolve(__dirname, "..", "php_build/install_data");
+        if (fs.existsSync(BinPath)) fs.rmSync(BinPath, {recursive: true});
+        if (fs.existsSync(InstallData)) fs.rmSync(InstallData, {recursive: true});
         // MacOS Set Paths
         process.env.PATH = "/usr/local/opt/bison/bin:" + process.env.PATH
         process.env.LDFLAGS = "-L/usr/local/opt/bison/lib"

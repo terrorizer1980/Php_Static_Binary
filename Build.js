@@ -6,8 +6,7 @@ const Android = require("./targets/android_aarch64");
     // Linux and Android
     if (process.platform === "linux"){
         try {
-            await Linux.Linux()
-            await Android.MuslBuildInstall();
+            await Linux.Linux();
             await Android.android_aarch64();
         } catch (e) {
             console.log(e);

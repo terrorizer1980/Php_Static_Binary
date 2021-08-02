@@ -1,3 +1,4 @@
+name: PHP Bin build
 on:
   push:
     branches:
@@ -40,6 +41,10 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y build-essential make wget gzip bzip2 bison git cmake re2c autoconf automake pkg-config libtool* unzip zip
+
+      - name: Linux Install musl-cross-installer
+        if: matrix.os == 'ubuntu-latest'
+        run: npm run musl
 
       - name: Windows Depencies Install
         if: matrix.os == 'windows-latest'
