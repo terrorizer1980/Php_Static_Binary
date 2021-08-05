@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - "main"
+    paths-ignore: 
+      - ".github"
   schedule:
     - cron: "0 0 1 * *"
   watch:
